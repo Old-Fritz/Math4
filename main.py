@@ -15,6 +15,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     w = Window(800, 600, array.getNames())
-    Controller.__init__(w,array)
-    Controller.calculate("1",-10,10,1)
+    Controller.__init__(w, array)
     sys.exit(app.exec_())

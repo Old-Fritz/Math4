@@ -13,7 +13,7 @@ class Controller:
         Controller.functionArray = functionArray
 
     @staticmethod
-    def calculate(funcName, start, end, precision):
-        function = Controller.functionArray.getFunction(funcName)
-        Controller.window.drawResult(function.toPointsResult(start*2, end, precision), function.toPointsResult(start, end, precision))
+    def calculate(funcInd, x0, y0, end, precision):
+        function = Controller.functionArray.getFunction(funcInd)
+        Controller.window.drawResult(function.toPointsResult(x0*2, end, precision), function.toPointsResult(x0, end, precision))
 

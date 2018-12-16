@@ -24,8 +24,3 @@ class FunctionArray:
     def getFunction(self, index):
         if len(self.array) > index and index >= 0:
             return self.array[index]
-
-    def getFunction(self, name):
-        for function in self.array:
-            if function.getName() == name:
-                return function

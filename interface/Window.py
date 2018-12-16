@@ -14,7 +14,7 @@ class Window(QWidget):
         self.initUI(width, height)
 
     def initUI(self, width, height):
-        self.setGeometry(0,0,width, height)
+        self.setGeometry(0, 0, width, height)
         self.setWindowTitle('VMLab4')
         layout = QVBoxLayout()
         self.setLayout(layout)
@@ -26,5 +26,7 @@ class Window(QWidget):
         # init chart
         chart = Chart()
         layout.addWidget(chart, 6)
+        chart.drawPoints([[0, 2], [1, 3], [2, 2]], "qwe")
+        chart.drawPoints([[0, 3], [1, 4], [2, 1], [3, 52]], "rty")
 
         self.show()

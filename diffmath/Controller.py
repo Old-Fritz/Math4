@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+from diffmath.DiffMethods import MilnMethod
 from diffmath.FunctionArray import FunctionArray
 
 
@@ -15,5 +16,7 @@ class Controller:
     @staticmethod
     def calculate(funcInd, x0, y0, end, precision):
         function = Controller.functionArray.getFunction(funcInd)
-        Controller.window.drawResult(function.toPointsResult(x0*2, end, precision), function.toPointsResult(x0, end, precision))
+        calculatedPoints = MilnMethod.calculate(function.getDiff(), y0, x0, end, precision)
+        originalPoints = function.toPointsOriginal(x0, end, precision)
+        Controller.window.drawResult(calculatedPoints, originalPoints)
 

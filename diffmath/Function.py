@@ -3,10 +3,10 @@
 
 
 class Function:
-    def __init__(self, name, differential, result):
+    def __init__(self, name, differential, original):
         self.name = name
         self.differential = differential
-        self.result = result
+        self.original = original
 
     def getName(self):
         return self.name
@@ -14,12 +14,14 @@ class Function:
     def getDiff(self):
         return self.differential
 
-    def getResult(self):
-        return self.result
+    def getOriginal(self):
+        return self.original
 
-    def toPointsResult(self, start, end, step):
+    def toPointsOriginal(self, start, end, step):
         points = []
-        while start <= end:
-            points.append([start, self.result(start)])
-            start += step
+        count = int(abs((end-start)/step))
+        x = start
+        for i in range(0,count):
+            points.append([x, self.original(x)])
+            x += step
         return points

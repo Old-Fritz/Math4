@@ -9,24 +9,28 @@ from interface.SetPanel import SetPanel
 
 class Window(QWidget):
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, functionNames):
         super().__init__()
-        self.initUI(width, height)
+        self.initUI(width, height, functionNames)
 
-    def initUI(self, width, height):
+    def initUI(self, width, height, functionNames):
         self.setGeometry(0, 0, width, height)
         self.setWindowTitle('VMLab4')
         layout = QVBoxLayout()
         self.setLayout(layout)
 
         # init SetPanel
-        setPanel = SetPanel()
+        setPanel = SetPanel(functionNames)
         layout.addWidget(setPanel, 1)
 
         # init chart
-        chart = Chart()
-        layout.addWidget(chart, 6)
-        chart.drawPoints([[0, 2], [1, 3], [2, 2]], "qwe")
-        chart.drawPoints([[0, 3], [1, 4], [2, 1], [3, 52]], "rty")
+        self.chart = Chart()
+        layout.addWidget(self.chart, 6)
 
         self.show()
+
+    def drawResult(self, calculatedPoints, resultPoints):
+        self.chart.clearPoints()
+        self.chart.drawPoints(resultPoints, "original")
+        self.chart.drawPoints(calculatedPoints, "calculated")
+

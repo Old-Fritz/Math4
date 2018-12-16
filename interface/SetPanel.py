@@ -7,11 +7,11 @@ from PyQt5.QtCore import *
 
 class SetPanel(QWidget):
 
-    def __init__(self):
+    def __init__(self, functionNames):
         super().__init__()
-        self.initUI()
+        self.initUI(functionNames)
 
-    def initUI(self):
+    def initUI(self, functionNames):
         layout = QGridLayout()
         self.setLayout(layout)
 
@@ -26,7 +26,7 @@ class SetPanel(QWidget):
             layout.addWidget(el, 0, i, Qt.AlignCenter)
 
         # second row
-        comboBox = self.createComboBox()
+        comboBox = self.createComboBox(functionNames)
         layout.addWidget(comboBox, 1, 0, Qt.AlignCenter)
 
         for i in range(1,4):
@@ -39,9 +39,9 @@ class SetPanel(QWidget):
         layout.addWidget(button, 0, 4, 2, 1, Qt.AlignCenter)
 
 
-    def createComboBox(self):
+    def createComboBox(self, names):
         comboBox = QComboBox()
-        comboBox.addItems(["1", "2", "3"])
+        comboBox.addItems(names)
         return comboBox
 
 

@@ -21,7 +21,11 @@ class Function:
         points = []
         count = int(abs((end-start)/step))
         x = start
-        for i in range(0,count):
-            points.append([x, self.original(x)])
+        for i in range(0, count):
+            try:
+                y=self.original(x)
+            except:
+                y = 0
+            points.append([x, y])
             x += step
         return points

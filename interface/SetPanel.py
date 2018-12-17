@@ -69,7 +69,7 @@ class SetPanel(QWidget):
         except ValueError:
             QMessageBox.warning(self, "Ошибка", "Введите корректные значения", QMessageBox.Ok)
         try:
-            Controller.calculate(index,x0,y0,end,precision)
+            Controller.calculate(index, x0, y0, end, precision)
         except:
             QMessageBox.warning(self, "Ошибка", "Ошибка вычисления", QMessageBox.Ok)
 

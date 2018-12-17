@@ -34,10 +34,15 @@ class MilnMethod:
                     function(result[i - 2][0], result[i - 2][1]) +
                     2 * function(result[i - 1][0], result[i - 1][1]))
 
-            y = result[i - 2][1] + delta / 3 * (
-                    function(result[i - 2][0], result[i - 2][1]) +
-                    4 * function(result[i - 1][0], result[i - 1][1]) +
-                    function(x, predY))
+            while True:
+                y = result[i - 2][1] + delta / 3 * (
+                        function(result[i - 2][0], result[i - 2][1]) +
+                        4 * function(result[i - 1][0], result[i - 1][1]) +
+                        function(x, predY))
+                if abs(predY-y) < precision:
+                    break
+                else:
+                    predY = y
 
             result.append([x, y])
 
